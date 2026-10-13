@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chrome-detailing | Эстетика в деталях</title>
     <meta name="description" content="Chrome-detailing — премиальный детейлинг с трансфером в Калининграде.">
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -126,8 +125,6 @@
         .package-btn:hover { background: var(--accent-hover); }
         .packages-note { margin-top: 40px; padding: 24px; border: 1px solid var(--border); font-size: 14px; color: var(--text-muted); }
         .packages-note strong { color: var(--text); }
-        .promo-warning { margin-top: 20px; padding: 24px; border: 1px solid rgba(232, 197, 71, 0.3); background: rgba(232, 197, 71, 0.05); font-size: 14px; color: var(--text-muted); }
-        .promo-warning strong { color: var(--accent); }
         .advantages { background: var(--bg); border-top: 1px solid var(--border); }
         .advantages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; }
         .advantage-item { padding: 30px 0; border-top: 1px solid var(--border); }
@@ -144,11 +141,6 @@
         .form-group select option { background: var(--bg); color: var(--text); }
         .form-btn { width: 100%; margin-top: 10px; }
         .form-note { text-align: center; font-size: 12px; color: var(--text-dark); margin-top: 16px; }
-        .discount-banner { margin-top: 20px; padding: 16px; background: rgba(232, 197, 71, 0.1); border: 1px solid var(--accent); display: none; }
-        .discount-banner.active { display: block; }
-        .discount-banner-title { color: var(--accent); font-weight: 700; font-size: 14px; margin-bottom: 6px; }
-        .discount-banner-text { color: var(--text-muted); font-size: 13px; }
-        .discount-banner-warning { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-dark); }
         .contacts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 40px; }
         .contact-card { padding: 30px 0; border-top: 1px solid var(--border); cursor: pointer; transition: all 0.3s ease; }
         .contact-card:hover { border-top-color: var(--accent); }
@@ -156,18 +148,13 @@
         .contact-card h4 { font-size: 11px; color: var(--text-dark); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; font-weight: 600; }
         .contact-card a { color: var(--text); text-decoration: none; font-size: 16px; font-weight: 600; }
         footer { padding: 30px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; color: var(--text-dark); font-size: 13px; }
-        .floating-buttons { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 16px; z-index: 99; }
-        .floating-btn { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; text-decoration: none; cursor: pointer; border: none; transition: all 0.3s ease; position: relative; }
-        .floating-phone { background: var(--accent); color: #000; }
+        .floating-phone { position: fixed; bottom: 30px; right: 30px; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; text-decoration: none; background: var(--accent); color: #000; transition: all 0.3s ease; z-index: 99; }
         .floating-phone:hover { background: var(--accent-hover); transform: scale(1.1); }
-        .floating-wheel { background: var(--bg-card); color: var(--text); border: 1px solid var(--border); }
-        .floating-wheel:hover { border-color: var(--accent); transform: scale(1.1); }
-        .wheel-notification { position: absolute; top: -5px; right: -5px; width: 20px; height: 20px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #000; }
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
         .modal.active { display: flex; }
         .modal-content { background: var(--bg-card); border: 1px solid var(--border); padding: 50px 40px; max-width: 420px; width: 100%; text-align: center; }
         .modal-icon { font-size: 48px; margin-bottom: 20px; }
-        .modal h3 { font-size: 24px; margin-bottom: 12px; cursor: pointer; user-select: none; }
+        .modal h3 { font-size: 24px; margin-bottom: 12px; }
         .modal p { color: var(--text-muted); margin-bottom: 24px; }
         .phone-number-display { padding: 30px; border: 1px solid var(--border); margin: 30px 0; }
         .phone-number-text { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
@@ -180,30 +167,19 @@
         .btn-copy:hover { border-color: var(--text); }
         .phone-work-hours { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-muted); }
         .phone-work-hours strong { color: var(--text); }
-        .wheel-container { position: relative; width: 320px; height: 320px; margin: 30px auto; }
-        .wheel-pointer { position: absolute; top: -8px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 18px solid transparent; border-right: 18px solid transparent; border-top: 32px solid var(--accent); z-index: 10; filter: drop-shadow(0 2px 8px rgba(232, 197, 71, 0.5)); }
-        .wheel-canvas-wrap { width: 100%; height: 100%; border-radius: 50%; border: 3px solid var(--border-light); overflow: hidden; box-shadow: 0 0 40px rgba(232, 197, 71, 0.1), inset 0 0 20px rgba(0,0,0,0.5); }
-        .wheel-canvas { width: 100%; height: 100%; display: block; }
-        .wheel-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 64px; height: 64px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 800; color: #000; z-index: 5; box-shadow: 0 4px 20px rgba(232, 197, 71, 0.4); border: 3px solid var(--bg); }
-        .spin-btn { margin-top: 30px; padding: 18px 48px; background: var(--accent); color: #000; border: none; font-size: 15px; font-weight: 800; cursor: pointer; font-family: inherit; text-transform: uppercase; letter-spacing: 2px; border-radius: 4px; transition: all 0.3s ease; }
-        .spin-btn:hover:not(:disabled) { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232, 197, 71, 0.3); }
-        .spin-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-        .wheel-info { margin-top: 30px; padding: 20px; border: 1px solid var(--border); font-size: 13px; color: var(--text-muted); }
-        .wheel-info strong { color: var(--text); }
-        .wheel-warning { margin-top: 10px; padding: 15px; border: 1px solid rgba(232, 197, 71, 0.3); background: rgba(232, 197, 71, 0.05); font-size: 12px; color: var(--text-muted); }
-        .wheel-warning strong { color: var(--accent); }
-        .wheel-result { margin-top: 30px; padding: 30px; border: 1px solid var(--accent); display: none; background: rgba(232, 197, 71, 0.05); }
-        .wheel-result.active { display: block; animation: resultAppear 0.5s ease; }
-        @keyframes resultAppear { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .wheel-result-title { font-size: 22px; font-weight: 800; margin-bottom: 12px; color: var(--accent); }
-        .wheel-result-text { color: var(--text-muted); font-size: 14px; margin-bottom: 16px; }
-        .wheel-result-code { display: inline-block; padding: 14px 28px; background: var(--bg); border: 2px dashed var(--accent); font-family: monospace; font-size: 20px; font-weight: 700; color: var(--accent); letter-spacing: 2px; }
-        .wheel-result-note { margin-top: 12px; font-size: 12px; color: var(--text-dark); }
-        .wheel-timer { margin-top: 16px; font-size: 13px; color: var(--text-muted); }
         @media (max-width: 1024px) { .catalog-grid { grid-template-columns: repeat(2, 1fr); } .catalog-item:nth-child(4n) { border-right: 1px solid var(--border); } .catalog-item:nth-child(2n) { border-right: none; } }
-        @media (max-width: 768px) { .container { padding: 0 20px; } nav ul { display: none; } .hero { padding: 100px 0 60px; } .hero-bg { width: 100%; opacity: 0.4; } section { padding: 70px 0; } .form-wrapper { padding: 30px 20px; } .hero-buttons { flex-direction: column; } .btn { width: 100%; } .floating-buttons { bottom: 20px; right: 20px; } .brands-content { flex-direction: column; align-items: flex-start; } .brands-logos { flex-wrap: wrap; gap: 30px; } .section-header { flex-direction: column; } .package-card.featured::before { position: static; display: inline-block; margin-bottom: 10px; } .services-grid { grid-template-columns: 1fr; } .catalog-grid { grid-template-columns: 1fr; } .catalog-item { border-right: none !important; } .wheel-container { width: 280px; height: 280px; } }
+        @media (max-width: 768px) { .container { padding: 0 20px; } nav ul { display: none; } .hero { padding: 100px 0 60px; } .hero-bg { width: 100%; opacity: 0.4; } section { padding: 70px 0; } .form-wrapper { padding: 30px 20px; } .hero-buttons { flex-direction: column; } .btn { width: 100%; } .floating-phone { bottom: 20px; right: 20px; } .brands-content { flex-direction: column; align-items: flex-start; } .brands-logos { flex-wrap: wrap; gap: 30px; } .section-header { flex-direction: column; } .package-card.featured::before { position: static; display: inline-block; margin-bottom: 10px; } .services-grid { grid-template-columns: 1fr; } .catalog-grid { grid-template-columns: 1fr; } .catalog-item { border-right: none !important; } }
         .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
+        /* Кнопка "Позвонить" только на мобильных устройствах */
+        @media (min-width: 769px) {
+            .btn-call {
+                display: none;
+            }
+            .btn-copy {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -232,16 +208,16 @@
             <div class="chemistry-brands fade-in">
                 <div class="brand-card"><div class="brand-card-header"><div><div class="brand-card-title">Koch Chemie</div><div class="brand-card-sub">Немецкое качество</div></div><div class="brand-card-flag">🇩🇪</div></div><p class="brand-card-desc">Составы для деликатной мойки, очистки и ухода за каждой поверхностью.</p></div>
                 <div class="brand-card"><div class="brand-card-header"><div><div class="brand-card-title">CARPRO</div><div class="brand-card-sub">Корейские технологии</div></div><div class="brand-card-flag">🇰🇷</div></div><p class="brand-card-desc">Керамические покрытия и средства для подготовки и защиты кузова.</p></div>
-                <div class="brand-card"><div class="brand-card-header"><div><div class="brand-card-title">GYEON</div><div class="brand-card-sub">Корейские технологии</div></div><div class="brand-card-flag">🇷</div></div><p class="brand-card-desc">Керамические покрытия и продвинутый уход за кузовом и салоном.</p></div>
+                <div class="brand-card"><div class="brand-card-header"><div><div class="brand-card-title">GYEON</div><div class="brand-card-sub">Корейские технологии</div></div><div class="brand-card-flag">🇰🇷</div></div><p class="brand-card-desc">Керамические покрытия и продвинутый уход за кузовом и салоном.</p></div>
                 <div class="brand-card"><div class="brand-card-header"><div><div class="brand-card-title">Meguiar's</div><div class="brand-card-sub">США</div></div><div class="brand-card-flag">🇺🇸</div></div><p class="brand-card-desc">Полировальные составы и средства для выразительного финиша.</p></div>
             </div>
             <div class="features-grid fade-in">
                 <div class="feature-item"><div class="feature-icon">🛡️</div><div class="feature-content"><h4>Безопасность</h4><p>Подбор состава под материал</p></div></div>
-                <div class="feature-item"><div class="feature-icon">⏱️</div><div class="feature-content"><h4>Долговечность</h4><p>Керамика сохраняет защиту годами</p></div></div>
+                <div class="feature-item"><div class="feature-icon">️</div><div class="feature-content"><h4>Долговечность</h4><p>Керамика сохраняет защиту годами</p></div></div>
                 <div class="feature-item"><div class="feature-icon">✨</div><div class="feature-content"><h4>Результат</h4><p>Чистота и выразительный блеск</p></div></div>
                 <div class="feature-item"><div class="feature-icon">🌿</div><div class="feature-content"><h4>Экологичность</h4><p>Биоразлагаемые составы</p></div></div>
                 <div class="feature-item"><div class="feature-icon">🔬</div><div class="feature-content"><h4>Инновации</h4><p>Современные технологии ухода</p></div></div>
-                <div class="feature-item"><div class="feature-icon">💎</div><div class="feature-content"><h4>Профессионализм</h4><p>Внимание к каждой поверхности</p></div></div>
+                <div class="feature-item"><div class="feature-icon"></div><div class="feature-content"><h4>Профессионализм</h4><p>Внимание к каждой поверхности</p></div></div>
             </div>
         </div>
     </section>
@@ -278,17 +254,17 @@
                 <button class="category-btn" data-category="extra">Дополнительно</button>
             </div>
             <div class="catalog-grid" id="catalogGrid">
-                <div class="catalog-item fade-in" data-category="exterior"><div class="catalog-item-header"><div class="catalog-item-icon">💦</div><span class="catalog-item-badge">Хит</span></div><h4>Комплексная мойка</h4><p class="catalog-item-desc">Бесконтактная мойка кузова Koch Chemie, чернение шин, уборка салона, протирка стёкол.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">1 200 ₽</span></div><div class="catalog-time"> 1–1.5 часа</div></div></div>
-                <div class="catalog-item fade-in" data-category="exterior"><div class="catalog-item-header"><div class="catalog-item-icon"></div></div><h4>Премиум-мойка</h4><p class="catalog-item-desc">Двухфазная мойка CarPro, очистка битума, удаление насекомых, антидождь, полировка дисков.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">2 800 ₽</span></div><div class="catalog-time"> 2–3 часа</div></div></div>
-                <div class="catalog-item fade-in" data-category="exterior"><div class="catalog-item-header"><div class="catalog-item-icon"></div></div><h4>Глубокая очистка дисков</h4><p class="catalog-item-desc">Удаление тормозной пыли и битума специальными средствами. Возвращаем дискам заводской вид.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">1 500 ₽</span></div><div class="catalog-time">⏱ 1–1.5 часа</div></div></div>
-                <div class="catalog-item fade-in" data-category="exterior"><div class="catalog-item-header"><div class="catalog-item-icon">⚙️</div></div><h4>Очистка моторного отсека</h4><p class="catalog-item-desc">Деликатная мойка двигателя специальными составами с защитой электрики.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">2 000 ₽</span></div><div class="catalog-time">⏱ 1.5–2 часа</div></div></div>
+                <div class="catalog-item fade-in" data-category="exterior"><div class="catalog-item-header"><div class="catalog-item-icon">💦</div><span class="catalog-item-badge">Хит</span></div><h4>Комплексная мойка</h4><p class="catalog-item-desc">Бесконтактная мойка кузова Koch Chemie, чернение шин, уборка салона, протирка стёкол.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">1 200 ₽</span></div><div class="catalog-time">⏱ 1–1.5 часа</div></div></div>
+                <div class="catalog-item fade-in" data-category="exterior"><div class="catalog-item-header"><div class="catalog-item-icon"></div></div><h4>Премиум-мойка</h4><p class="catalog-item-desc">Двухфазная мойка CarPro, очистка битума, удаление насекомых, антидождь, полировка дисков.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">2 800 ₽</span></div><div class="catalog-time">⏱ 2–3 часа</div></div></div>
+                <div class="catalog-item fade-in" data-category="exterior"><div class="catalog-item-header"><div class="catalog-item-icon">🔧</div></div><h4>Глубокая очистка дисков</h4><p class="catalog-item-desc">Удаление тормозной пыли и битума специальными средствами. Возвращаем дискам заводской вид.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">1 500 ₽</span></div><div class="catalog-time">⏱ 1–1.5 часа</div></div></div>
+                <div class="catalog-item fade-in" data-category="exterior"><div class="catalog-item-header"><div class="catalog-item-icon">⚙️</div></div><h4>Очистка моторного отсека</h4><p class="catalog-item-desc">Деликатная мойка двигателя специальными составами с защитой электрики.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">2 000 ₽</span></div><div class="catalog-time"> 1.5–2 часа</div></div></div>
                 <div class="catalog-item fade-in" data-category="interior"><div class="catalog-item-header"><div class="catalog-item-icon"></div><span class="catalog-item-badge">Хит</span></div><h4>Химчистка салона</h4><p class="catalog-item-desc">Полная химчистка Chemical Guys: потолок, сиденья, ковры, двери, пластик. Удаление пятен и запахов.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">4 500 ₽</span></div><div class="catalog-time">⏱ 4–6 часов</div></div></div>
                 <div class="catalog-item fade-in" data-category="interior"><div class="catalog-item-header"><div class="catalog-item-icon">🛋️</div></div><h4>Химчистка одного элемента</h4><p class="catalog-item-desc">Локальная очистка: одно сиденье, потолок, багажник. Идеально при точечных загрязнениях.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">600 ₽</span></div><div class="catalog-time">⏱ 30–60 мин</div></div></div>
                 <div class="catalog-item fade-in" data-category="interior"><div class="catalog-item-header"><div class="catalog-item-icon">💨</div></div><h4>Озонирование салона</h4><p class="catalog-item-desc">Полное уничтожение запахов на молекулярном уровне. Безопасно для людей и животных.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">1 500 ₽</span></div><div class="catalog-time">⏱ 1–2 часа</div></div></div>
                 <div class="catalog-item fade-in" data-category="interior"><div class="catalog-item-header"><div class="catalog-item-icon">🧴</div></div><h4>Реставрация кожи</h4><p class="catalog-item-desc">Глубокое питание и восстановление кожи премиальными средствами. Устранение потёртостей.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">3 500 ₽</span></div><div class="catalog-time">⏱ 2–3 часа</div></div></div>
-                <div class="catalog-item fade-in" data-category="protection"><div class="catalog-item-header"><div class="catalog-item-icon">🛡️</div><span class="catalog-item-badge">Топ</span></div><h4>Керамическое покрытие</h4><p class="catalog-item-desc">Нанесение керамики Gyeon/CarPro. Защита от царапин, УФ, реагентов. Блеск на 1–3 года.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">12 000 ₽</span></div><div class="catalog-time"> 1–2 дня</div></div></div>
-                <div class="catalog-item fade-in" data-category="protection"><div class="catalog-item-header"><div class="catalog-item-icon">💧</div></div><h4>Жидкое стекло</h4><p class="catalog-item-desc">Нано-покрытие с гидрофобом. Защита ЛКП, яркий блеск. Срок — до 1 года.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">6 500 ₽</span></div><div class="catalog-time">⏱ 1 день</div></div></div>
-                <div class="catalog-item fade-in" data-category="protection"><div class="catalog-item-header"><div class="catalog-item-icon">🎬</div></div><h4>Оклейка антигравийной плёнкой</h4><p class="catalog-item-desc">Защита зон риска полиуретановой плёнкой от сколов, царапин и реагентов.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">10 000 ₽</span></div><div class="catalog-time"> 1–3 дня</div></div></div>
+                <div class="catalog-item fade-in" data-category="protection"><div class="catalog-item-header"><div class="catalog-item-icon">🛡️</div><span class="catalog-item-badge">Топ</span></div><h4>Керамическое покрытие</h4><p class="catalog-item-desc">Нанесение керамики Gyeon/CarPro. Защита от царапин, УФ, реагентов. Блеск на 1–3 года.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">12 000 ₽</span></div><div class="catalog-time">⏱ 1–2 дня</div></div></div>
+                <div class="catalog-item fade-in" data-category="protection"><div class="catalog-item-header"><div class="catalog-item-icon"></div></div><h4>Жидкое стекло</h4><p class="catalog-item-desc">Нано-покрытие с гидрофобом. Защита ЛКП, яркий блеск. Срок — до 1 года.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">6 500 ₽</span></div><div class="catalog-time"> 1 день</div></div></div>
+                <div class="catalog-item fade-in" data-category="protection"><div class="catalog-item-header"><div class="catalog-item-icon">🎬</div></div><h4>Оклейка антигравийной плёнкой</h4><p class="catalog-item-desc">Защита зон риска полиуретановой плёнкой от сколов, царапин и реагентов.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">10 000 ₽</span></div><div class="catalog-time">⏱ 1–3 дня</div></div></div>
                 <div class="catalog-item fade-in" data-category="protection"><div class="catalog-item-header"><div class="catalog-item-icon">✨</div></div><h4>Полировка кузова</h4><p class="catalog-item-desc">Восстановительная или финишная полировка. Удаление царапин, возвращение блеска.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">8 500 ₽</span></div><div class="catalog-time">⏱ 1–2 дня</div></div></div>
                 <div class="catalog-item fade-in" data-category="extra"><div class="catalog-item-header"><div class="catalog-item-icon">💡</div></div><h4>Полировка фар</h4><p class="catalog-item-desc">Восстановление прозрачности помутневших фар. Улучшает свет и внешний вид.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">1 200 ₽</span></div><div class="catalog-time">⏱ 1–1.5 часа</div></div></div>
                 <div class="catalog-item fade-in" data-category="extra"><div class="catalog-item-header"><div class="catalog-item-icon">🖤</div></div><h4>Чернение резины и пластика</h4><p class="catalog-item-desc">Восстановление чёрного цвета шин, молдингов и неокрашенного пластика.</p><div class="catalog-item-footer"><div class="catalog-price"><span class="catalog-price-label">от</span><span class="catalog-price-value">800 ₽</span></div><div class="catalog-time">⏱ 30–60 мин</div></div></div>
@@ -302,13 +278,12 @@
             <div class="packages-grid">
                 <div class="package-card fade-in"><div class="package-header"><div class="package-icon">💎</div><div class="package-save">−22%</div></div><h3 class="package-title">Пакет «Базовый уход»</h3><p class="package-subtitle">Идеально для регулярного поддержания автомобиля в отличном состоянии</p><ul class="package-includes"><li>Комплексная мойка Koch Chemie</li><li>Чернение резины и пластика</li><li>Полировка фар</li><li>Трансфер (забор и доставка)</li></ul><div class="package-pricing"><div class="package-old-price">Обычная цена: 3 200 ₽</div><div class="package-new-price-value">2 500 ₽</div></div><div class="package-time">⏱ 2.5–3 часа</div><button class="package-btn" onclick="selectPackage('Базовый уход')">Заказать пакет</button></div>
                 <div class="package-card featured fade-in"><div class="package-header"><div class="package-icon">🏆</div><div class="package-save">−23%</div></div><h3 class="package-title">Пакет «Премиум экстерьер»</h3><p class="package-subtitle">Полный уход за внешним видом — автомобиль как с конвейера</p><ul class="package-includes"><li>Премиум-мойка CarPro (2 фазы)</li><li>Глубокая очистка дисков</li><li>Очистка моторного отсека</li><li>Чернение резины и пластика</li><li>Антидождь на стёкла</li><li>Трансфер (забор и доставка)</li></ul><div class="package-pricing"><div class="package-old-price">Обычная цена: 7 900 ₽</div><div class="package-new-price-value">5 900 ₽</div></div><div class="package-time">⏱ 5–6 часов</div><button class="package-btn" onclick="selectPackage('Премиум экстерьер')">Заказать пакет</button></div>
-                <div class="package-card fade-in"><div class="package-header"><div class="package-icon">🛋️</div><div class="package-save">−21%</div></div><h3 class="package-title">Пакет «Идеальный салон»</h3><p class="package-subtitle">Полное преображение интерьера — как новый автомобиль</p><ul class="package-includes"><li>Полная химчистка салона</li><li>Озонирование (удаление запахов)</li><li>Реставрация кожи</li><li>Защита пластика UV-составом</li><li>Трансфер (забор и доставка)</li></ul><div class="package-pricing"><div class="package-old-price">Обычная цена: 10 300 ₽</div><div class="package-new-price-value">7 900 ₽</div></div><div class="package-time">⏱ 8–10 часов</div><button class="package-btn" onclick="selectPackage('Идеальный салон')">Заказать пакет</button></div>
+                <div class="package-card fade-in"><div class="package-header"><div class="package-icon">🛋️</div><div class="package-save">−21%</div></div><h3 class="package-title">Пакет «Идеальный салон»</h3><p class="package-subtitle">Полное преображение интерьера — как новый автомобиль</p><ul class="package-includes"><li>Полная химчистка салона</li><li>Озонирование (удаление запахов)</li><li>Реставрация кожи</li><li>Защита пластика UV-составом</li><li>Трансфер (забор и доставка)</li></ul><div class="package-pricing"><div class="package-old-price">Обычная цена: 10 300 ₽</div><div class="package-new-price-value">7 900 ₽</div></div><div class="package-time"> 8–10 часов</div><button class="package-btn" onclick="selectPackage('Идеальный салон')">Заказать пакет</button></div>
                 <div class="package-card fade-in"><div class="package-header"><div class="package-icon">🛡️</div><div class="package-save">−20%</div></div><h3 class="package-title">Пакет «Максимальная защита»</h3><p class="package-subtitle">Долговременная защита ЛКП на 1–3 года. Идеально после покупки авто</p><ul class="package-includes"><li>Премиум-мойка + подготовка ЛКП</li><li>Восстановительная полировка</li><li>Керамическое покрытие Gyeon/CarPro</li><li>Защита дисков керамикой</li><li>Трансфер (забор и доставка)</li></ul><div class="package-pricing"><div class="package-old-price">Обычная цена: 24 100 ₽</div><div class="package-new-price-value">18 900 ₽</div></div><div class="package-time">⏱ 2–3 дня</div><button class="package-btn" onclick="selectPackage('Максимальная защита')">Заказать пакет</button></div>
                 <div class="package-card featured fade-in"><div class="package-header"><div class="package-icon">👑</div><div class="package-save">−25%</div></div><h3 class="package-title">Пакет «VIP Под ключ»</h3><p class="package-subtitle">Абсолютный максимум — полный детейлинг снаружи и внутри с защитой</p><ul class="package-includes"><li>Премиум-мойка CarPro</li><li>Полная химчистка салона</li><li>Озонирование + реставрация кожи</li><li>Полировка кузова</li><li>Керамическое покрытие</li><li>Защита дисков и стёкол</li><li>Трансфер (забор и доставка)</li></ul><div class="package-pricing"><div class="package-old-price">Обычная цена: 35 600 ₽</div><div class="package-new-price-value">26 500 ₽</div></div><div class="package-time">⏱ 3–4 дня</div><button class="package-btn" onclick="selectPackage('VIP Под ключ')">Заказать пакет</button></div>
                 <div class="package-card fade-in"><div class="package-header"><div class="package-icon">🍂</div><div class="package-save">−20%</div></div><h3 class="package-title">Пакет «Сезонная подготовка»</h3><p class="package-subtitle">Подготовьте авто к зиме или лету — защита от реагентов и УФ</p><ul class="package-includes"><li>Комплексная мойка</li><li>Очистка моторного отсека</li><li>Жидкое стекло на кузов</li><li>Обработка резиновых уплотнителей</li><li>Антидождь на стёкла</li><li>Трансфер (забор и доставка)</li></ul><div class="package-pricing"><div class="package-old-price">Обычная цена: 11 300 ₽</div><div class="package-new-price-value">8 900 ₽</div></div><div class="package-time">⏱ 1 день</div><button class="package-btn" onclick="selectPackage('Сезонная подготовка')">Заказать пакет</button></div>
             </div>
             <div class="packages-note fade-in">💡 <strong>Все пакеты включают бесплатный трансфер</strong> — заберём авто от вас и вернём в удобное время.</div>
-            <div class="promo-warning fade-in">⚠️ <strong>Важно о промокодах:</strong> Скидки и бесплатные услуги, выигранные в Колесе Фортуны, действуют только на отдельные услуги из каталога и не распространяются на комплексные пакеты. Пакеты уже включают максимальную выгоду.</div>
         </div>
     </section>
     <section id="advantages" class="advantages">
@@ -332,7 +307,6 @@
                     <div class="form-group"><label for="email">Email (необязательно)</label><input type="email" id="email" name="email" placeholder="Для получения подтверждения"></div>
                     <div class="form-group"><label for="service">Интересующая услуга</label><select id="service" name="service"><optgroup label="— Отдельные услуги —"><option value="wash">Комплексная мойка</option><option value="premium-wash">Премиум-мойка</option><option value="cleaning">Химчистка салона</option><option value="ceramic">Керамическое покрытие</option><option value="polish">Полировка кузова</option><option value="film">Оклейка плёнкой</option></optgroup><optgroup label="— Выгодные пакеты —"><option value="pkg-basic">Пакет «Базовый уход» — 2 500 ₽</option><option value="pkg-exterior">Пакет «Премиум экстерьер» — 5 900 ₽</option><option value="pkg-interior">Пакет «Идеальный салон» — 7 900 ₽</option><option value="pkg-protection">Пакет «Максимальная защита» — 18 900 ₽</option><option value="pkg-vip">Пакет «VIP Под ключ» — 26 500 ₽</option><option value="pkg-season">Пакет «Сезонная подготовка» — 8 900 ₽</option></optgroup><option value="other">Другое / консультация</option></select></div>
                     <div class="form-group"><label for="comment">Комментарий</label><textarea id="comment" name="comment"></textarea></div>
-                    <div class="discount-banner" id="discountBanner"><div class="discount-banner-title">🎉 Ваша скидка активна!</div><div class="discount-banner-text" id="discountBannerText"></div><div class="discount-banner-warning">⚠️ Промокод действует только на отдельные услуги из каталога, но не на пакеты</div></div>
                     <button type="submit" class="btn btn-primary form-btn" id="submitBtn">Отправить заявку</button>
                     <p class="form-note">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
                 </form>
@@ -343,18 +317,15 @@
         <div class="container">
             <div class="section-header fade-in"><div><div class="section-label">Контакты</div><h2>Свяжитесь с нами</h2></div><p class="section-desc">Мы на связи 7 дней в неделю</p></div>
             <div class="contacts-grid">
-                <div class="contact-card fade-in" onclick="openPhoneModal()"><div class="contact-icon">📞</div><h4>Телефон</h4><a>+7 (900) 000-00-00</a></div>
+                <div class="contact-card fade-in" onclick="openPhoneModal()"><div class="contact-icon"></div><h4>Телефон</h4><a>+7 (900) 000-00-00</a></div>
                 <div class="contact-card fade-in"><div class="contact-icon">✉️</div><h4>Email</h4><a href="mailto:info@chrome-detailing.ru">info@chrome-detailing.ru</a></div>
                 <div class="contact-card fade-in"><div class="contact-icon">✈️</div><h4>Telegram</h4><a href="https://t.me/CHROMEDetailing1" target="_blank">@CHROMEDetailing1</a></div>
-                <div class="contact-card fade-in"><div class="contact-icon"></div><h4>Город</h4><a>Калининград и область</a></div>
+                <div class="contact-card fade-in"><div class="contact-icon">📍</div><h4>Город</h4><a>Калининград и область</a></div>
             </div>
         </div>
     </section>
     <footer><div class="container"><div><strong style="color: var(--text);">Chrome-detailing</strong> · Эстетика в деталях</div><div>Калининград · Детейлинг с трансфером</div></div></footer>
-    <div class="floating-buttons">
-        <button class="floating-btn floating-wheel" onclick="openWheelModal()" title="Колесо фортуны">🎰<span class="wheel-notification" id="wheelNotif" style="display:none">!</span></button>
-        <a class="floating-btn floating-phone" onclick="openPhoneModal()" title="Позвонить"></a>
-    </div>
+    <a class="floating-phone" onclick="openPhoneModal()" title="Позвонить">📞</a>
     <div class="modal" id="phoneModal">
         <div class="modal-content">
             <div class="modal-icon">📞</div>
@@ -363,28 +334,6 @@
             <div class="phone-number-display"><div class="phone-number-text">+7 (900) 000-00-00</div><div class="phone-number-label">Chrome-detailing</div></div>
             <div class="phone-modal-actions"><a href="tel:+79000000000" class="btn btn-call">Позвонить</a><button class="btn btn-copy" id="copyPhoneBtn" onclick="copyPhone()">Скопировать</button></div>
             <div class="phone-work-hours">Работаем <strong>ежедневно с 9:00 до 21:00</strong></div>
-        </div>
-    </div>
-    <div class="modal" id="wheelModal">
-        <div class="modal-content">
-            <div class="modal-icon">🎰</div>
-            <h3 id="wheelTitle">Колесо Фортуны</h3>
-            <p>Крутите раз в неделю и выигрывайте скидку на любую услугу!</p>
-            <div class="wheel-container">
-                <div class="wheel-pointer"></div>
-                <div class="wheel-canvas-wrap"><canvas id="wheelCanvas" class="wheel-canvas" width="640" height="640"></canvas></div>
-                <div class="wheel-center">🎯</div>
-            </div>
-            <button class="spin-btn" id="spinBtn">Крутить колесо</button>
-            <div class="wheel-info">💡 <strong>Правила:</strong> Одна попытка раз в 7 дней. Скидка действует на все отдельные услуги из каталога.</div>
-            <div class="wheel-warning">⚠️ <strong>Важно:</strong> Промокоды из колеса фортуны не действуют на комплексные пакеты. Пакеты уже включают максимальную выгоду.</div>
-            <div class="wheel-result" id="wheelResult">
-                <div class="wheel-result-title" id="wheelResultTitle"></div>
-                <div class="wheel-result-text" id="wheelResultText"></div>
-                <div class="wheel-result-code" id="wheelResultCode"></div>
-                <div class="wheel-result-note">⚠️ Промокод действует только на отдельные услуги из каталога</div>
-                <div class="wheel-timer" id="wheelTimer"></div>
-            </div>
         </div>
     </div>
     <div class="modal" id="successModal">
@@ -396,235 +345,13 @@
         </div>
     </div>
     <script>
-        const EMAILJS_PUBLIC_KEY = 'YOUR_EMAILJS_PUBLIC_KEY';
-        const EMAILJS_SERVICE_ID = 'YOUR_EMAILJS_SERVICE_ID';
-        const EMAILJS_TEMPLATE_ID = 'YOUR_EMAILJS_TEMPLATE_ID';
-        const COMPANY_EMAIL = 'info@chrome-detailing.ru';
         const PHONE_NUMBER = '+7 (900) 000-00-00';
         const PHONE_NUMBER_RAW = '+79000000000';
-        if (typeof emailjs !== 'undefined') emailjs.init(EMAILJS_PUBLIC_KEY);
 
         function selectPackage(packageName) {
             const packageMap = { 'Базовый уход': 'pkg-basic', 'Премиум экстерьер': 'pkg-exterior', 'Идеальный салон': 'pkg-interior', 'Максимальная защита': 'pkg-protection', 'VIP Под ключ': 'pkg-vip', 'Сезонная подготовка': 'pkg-season' };
             document.getElementById('service').value = packageMap[packageName] || 'other';
             document.getElementById('form').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        const wheelSegments = [
-            { label: '5%', color: '#e8c547', textColor: '#000000' },
-            { label: '10%', color: '#ffffff', textColor: '#000000' },
-            { label: '15%', color: '#e8c547', textColor: '#000000' },
-            { label: 'Чернение', color: '#ffffff', textColor: '#000000' },
-            { label: '7%', color: '#e8c547', textColor: '#000000' },
-            { label: 'Ещё раз', color: '#333333', textColor: '#ffffff' },
-            { label: '3%', color: '#e8c547', textColor: '#000000' },
-            { label: 'Фары', color: '#ffffff', textColor: '#000000' }
-        ];
-
-        const canvas = document.getElementById('wheelCanvas');
-        const ctx = canvas.getContext('2d');
-        const centerX = canvas.width / 2;
-        const centerY = canvas.height / 2;
-        const radius = canvas.width / 2 - 20;
-        const segmentAngle = (2 * Math.PI) / wheelSegments.length;
-        let currentAngle = 0;
-        let isSpinning = false;
-
-        const POINTER_ANGLE = -Math.PI / 2;
-
-        function drawWheel(angle) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.save();
-            ctx.translate(centerX, centerY);
-            ctx.rotate(angle);
-
-            wheelSegments.forEach((segment, i) => {
-                const startAngle = i * segmentAngle;
-                const endAngle = startAngle + segmentAngle;
-
-                ctx.beginPath();
-                ctx.moveTo(0, 0);
-                ctx.arc(0, 0, radius, startAngle, endAngle);
-                ctx.closePath();
-                ctx.fillStyle = segment.color;
-                ctx.fill();
-                ctx.strokeStyle = '#0a0a0a';
-                ctx.lineWidth = 4;
-                ctx.stroke();
-
-                ctx.save();
-                ctx.rotate(startAngle + segmentAngle / 2);
-                ctx.textAlign = 'right';
-                ctx.textBaseline = 'middle';
-                ctx.fillStyle = segment.textColor;
-                ctx.font = 'bold 36px Arial, sans-serif';
-                ctx.shadowColor = 'rgba(0,0,0,0.3)';
-                ctx.shadowBlur = 4;
-                ctx.fillText(segment.label, radius - 40, 0);
-                ctx.shadowBlur = 0;
-                ctx.restore();
-            });
-
-            ctx.beginPath();
-            ctx.arc(0, 0, radius, 0, 2 * Math.PI);
-            ctx.strokeStyle = '#e8c547';
-            ctx.lineWidth = 8;
-            ctx.stroke();
-
-            ctx.restore();
-        }
-
-        function getSegmentAtPointer(angle) {
-            const normalizedAngle = ((-angle + POINTER_ANGLE) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI);
-            const index = Math.floor(normalizedAngle / segmentAngle);
-            return index % wheelSegments.length;
-        }
-
-        function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
-
-        function spinWheel() {
-            if (isSpinning) return;
-
-            const lastSpin = localStorage.getItem('wheelLastSpin');
-            const now = Date.now();
-            const weekMs = 7 * 24 * 60 * 60 * 1000;
-
-            if (lastSpin && (now - parseInt(lastSpin)) < weekMs) {
-                const daysLeft = Math.ceil((weekMs - (now - parseInt(lastSpin))) / (24 * 60 * 60 * 1000));
-                alert(`Следующая попытка через ${daysLeft} дн.`);
-                return;
-            }
-
-            isSpinning = true;
-            document.getElementById('spinBtn').disabled = true;
-            document.getElementById('spinBtn').textContent = 'Крутится...';
-            document.getElementById('wheelResult').classList.remove('active');
-
-            const winningIndex = Math.floor(Math.random() * wheelSegments.length);
-            const winner = wheelSegments[winningIndex];
-
-            const segmentCenter = winningIndex * segmentAngle + segmentAngle / 2;
-            const targetLocalAngle = POINTER_ANGLE - segmentCenter;
-
-            const fullRotations = 5 + Math.floor(Math.random() * 3);
-
-            let delta = targetLocalAngle - (currentAngle % (2 * Math.PI));
-            delta = ((delta % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
-
-            const finalAngle = currentAngle + delta + fullRotations * 2 * Math.PI;
-            const randomOffset = (Math.random() - 0.5) * segmentAngle * 0.6;
-            const totalTargetAngle = finalAngle + randomOffset;
-
-            const startAngle = currentAngle;
-            const totalRotation = totalTargetAngle - startAngle;
-            const duration = 5000;
-            const startTime = performance.now();
-
-            function animate(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const easedProgress = easeOutCubic(progress);
-                currentAngle = startAngle + totalRotation * easedProgress;
-                drawWheel(currentAngle);
-
-                if (progress < 1) {
-                    requestAnimationFrame(animate);
-                } else {
-                    isSpinning = false;
-                    document.getElementById('spinBtn').disabled = false;
-                    document.getElementById('spinBtn').textContent = 'Крутить колесо';
-                    localStorage.setItem('wheelLastSpin', now.toString());
-                    localStorage.setItem('wheelDiscount', winner.label);
-                    showWheelResult(winner);
-                    checkWheelStatus();
-                }
-            }
-
-            requestAnimationFrame(animate);
-        }
-
-        function showWheelResult(winner) {
-            const resultDiv = document.getElementById('wheelResult');
-            const titleDiv = document.getElementById('wheelResultTitle');
-            const textDiv = document.getElementById('wheelResultText');
-            const codeDiv = document.getElementById('wheelResultCode');
-            const timerDiv = document.getElementById('wheelTimer');
-
-            if (winner.label === 'Ещё раз') {
-                titleDiv.textContent = 'Не повезло! 😔';
-                textDiv.textContent = 'Попробуйте в следующий раз. Удача обязательно улыбнётся!';
-                codeDiv.style.display = 'none';
-            } else {
-                const code = 'CHROME-' + winner.label.toUpperCase().replace(/[^A-ZА-Я0-9]/g, '').substring(0, 4) + '-' + Math.random().toString(36).substring(2, 6).toUpperCase();
-                titleDiv.textContent = `🎉 Вы выиграли: ${winner.label}!`;
-                textDiv.textContent = 'Используйте промокод при оформлении заявки:';
-                codeDiv.textContent = code;
-                codeDiv.style.display = 'inline-block';
-                localStorage.setItem('wheelDiscountCode', code);
-                const banner = document.getElementById('discountBanner');
-                const bannerText = document.getElementById('discountBannerText');
-                banner.classList.add('active');
-                bannerText.textContent = `Промокод ${code} даёт "${winner.label}" бесплатно на любую отдельную услугу из каталога.`;
-            }
-
-            const lastSpin = parseInt(localStorage.getItem('wheelLastSpin'));
-            const nextSpin = new Date(lastSpin + 7 * 24 * 60 * 60 * 1000);
-            timerDiv.textContent = `📅 Следующая попытка: ${nextSpin.toLocaleDateString('ru-RU')}`;
-            resultDiv.classList.add('active');
-        }
-
-        function checkWheelStatus() {
-            const lastSpin = localStorage.getItem('wheelLastSpin');
-            const discount = localStorage.getItem('wheelDiscount');
-            const notif = document.getElementById('wheelNotif');
-
-            if (!lastSpin) {
-                notif.style.display = 'flex';
-            } else {
-                const now = Date.now();
-                const weekMs = 7 * 24 * 60 * 60 * 1000;
-                if (now - parseInt(lastSpin) >= weekMs) {
-                    notif.style.display = 'flex';
-                } else {
-                    notif.style.display = 'none';
-                }
-            }
-
-            if (discount && discount !== 'Ещё раз') {
-                const banner = document.getElementById('discountBanner');
-                const bannerText = document.getElementById('discountBannerText');
-                const code = localStorage.getItem('wheelDiscountCode');
-                if (code) {
-                    banner.classList.add('active');
-                    bannerText.textContent = `Ваш промокод: ${code} (${discount} бесплатно на отдельную услугу)`;
-                }
-            }
-        }
-
-        // Секретный сброс: тройной клик на заголовок "Колесо Фортуны"
-        let titleClicks = 0;
-        document.getElementById('wheelTitle').addEventListener('click', function() {
-            titleClicks++;
-            if (titleClicks >= 3) {
-                localStorage.removeItem('wheelLastSpin');
-                localStorage.removeItem('wheelDiscount');
-                localStorage.removeItem('wheelDiscountCode');
-                checkWheelStatus();
-                document.getElementById('wheelResult').classList.remove('active');
-                document.getElementById('discountBanner').classList.remove('active');
-                alert('Колесо сброшено! Можно крутить снова.');
-                titleClicks = 0;
-            }
-            setTimeout(() => { titleClicks = 0; }, 2000);
-        });
-
-        checkWheelStatus();
-        document.getElementById('spinBtn').addEventListener('click', spinWheel);
-
-        function openWheelModal() {
-            document.getElementById('wheelModal').classList.add('active');
-            document.getElementById('wheelNotif').style.display = 'none';
-            setTimeout(() => { drawWheel(currentAngle); }, 50);
         }
 
         function openPhoneModal() {
@@ -685,33 +412,42 @@
             e.target.value = formatted;
         });
 
-        document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const submitBtn = document.getElementById('submitBtn');
             const originalBtnText = submitBtn.textContent;
             submitBtn.textContent = 'Отправка...';
             submitBtn.disabled = true;
+
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const email = document.getElementById('email').value;
             const service = document.getElementById('service').value;
             const comment = document.getElementById('comment').value;
-            const discountCode = localStorage.getItem('wheelDiscountCode');
-            const serviceNames = { 'wash': 'Комплексная мойка', 'premium-wash': 'Премиум-мойка', 'cleaning': 'Химчистка салона', 'ceramic': 'Керамическое покрытие', 'polish': 'Полировка кузова', 'film': 'Оклейка плёнкой', 'pkg-basic': 'Пакет «Базовый уход» — 2 500 ₽', 'pkg-exterior': 'Пакет «Премиум экстерьер» — 5 900 ₽', 'pkg-interior': 'Пакет «Идеальный салон» — 7 900 ₽', 'pkg-protection': 'Пакет «Максимальная защита» — 18 900 ₽', 'pkg-vip': 'Пакет «VIP Под ключ» — 26 500 ₽', 'pkg-season': 'Пакет «Сезонная подготовка» — 8 900 ₽', 'other': 'Другое / консультация' };
-            const messageText = `🚗 Новая заявка Chrome-detailing!\n\n👤 Имя: ${name}\n Телефон: ${phone}\n✉️ Email: ${email || '—'}\n🔧 Услуга: ${serviceNames[service] || service}\n💬 Комментарий: ${comment || '—'}\n${discountCode ? `🎉 Промокод: ${discountCode}` : ''}\n\n📅 Дата: ${new Date().toLocaleString('ru-RU')}`;
-            let telegramSent = false;
-            let emailSent = false;
-            try {
-                const telegramPromise = fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: messageText }) });
-                const emailPromise = typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== 'YOUR_EMAILJS_PUBLIC_KEY' ? emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, { to_email: COMPANY_EMAIL, from_name: name, from_email: email || 'no-reply@site.com', phone: phone, service: serviceNames[service] || service, message: comment || '—', discount_code: discountCode || '—', reply_to: email || '' }) : Promise.reject('EmailJS не настроен');
-                const [telegramResult, emailResult] = await Promise.allSettled([telegramPromise, emailPromise]);
-                telegramSent = telegramResult.status === 'fulfilled' && telegramResult.value?.ok;
-                emailSent = emailResult.status === 'fulfilled';
-                if (telegramSent || emailSent) { document.getElementById('successModal').classList.add('active'); this.reset(); document.getElementById('discountBanner').classList.remove('active'); } else { throw new Error('Обе отправки не удались'); }
-            } catch (error) { console.error('Ошибка:', error); alert('Произошла ошибка при отправке заявки. Пожалуйста, позвоните нам.'); } finally { submitBtn.textContent = originalBtnText; submitBtn.disabled = false; }
-        });
 
-        drawWheel(0);
+            const serviceNames = {
+                'wash': 'Комплексная мойка', 'premium-wash': 'Премиум-мойка',
+                'cleaning': 'Химчистка салона', 'ceramic': 'Керамическое покрытие',
+                'polish': 'Полировка кузова', 'film': 'Оклейка плёнкой',
+                'pkg-basic': 'Пакет «Базовый уход» — 2 500 ₽',
+                'pkg-exterior': 'Пакет «Премиум экстерьер» — 5 900 ₽',
+                'pkg-interior': 'Пакет «Идеальный салон» — 7 900 ₽',
+                'pkg-protection': 'Пакет «Максимальная защита» — 18 900 ₽',
+                'pkg-vip': 'Пакет «VIP Под ключ» — 26 500 ₽',
+                'pkg-season': 'Пакет «Сезонная подготовка» — 8 900 ₽',
+                'other': 'Другое / консультация'
+            };
+
+            // Здесь можно подключить отправку на ваш бэкенд/почту
+            console.log('Заявка:', { name, phone, email, service: serviceNames[service], comment });
+
+            setTimeout(() => {
+                document.getElementById('successModal').classList.add('active');
+                document.getElementById('bookingForm').reset();
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            }, 800);
+        });
     </script>
 </body>
 </html>
